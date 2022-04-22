@@ -1,0 +1,16 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    users_users:
+      - user: testregular
+        group: users
+      - user: testadmin
+    users_regular_users:
+      - testregular
+    users_admin_users:
+      - testadmin
+  tasks:
+    - name: "Include ansible-role-users"
+      include_role:
+        name: "ansible-role-users"
